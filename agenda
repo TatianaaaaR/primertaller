@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+
+struct Persona {
+    string nombre;
+    string apellido;
+    string direccion;
+    string telefono;
+};
+
+int main() {
+    Persona persona; 
+    int opcion;
+    bool datosRegistrados = false;
+
+    do {
+        
+        cout << "----- Menu de Agenda -----" << endl;
+        cout << "1. Registrar datos" << endl;
+        cout << "2. Ver datos registrados" << endl;
+        cout << "3. Salir" << endl;
+        cout << "Elige una opcion: ";
+        cin >> opcion;
+
+        switch(opcion) {
+            case 1:
+                
+                cout << "Nombre: ";
+                cin >> persona.nombre;
+
+                cout << "Apellido: ";
+                cin >> persona.apellido;
+
+                cout << "Direccion: ";
+                cin >> persona.direccion;
+
+                cout << "Telefono: ";
+                cin >> persona.telefono;
+
+                datosRegistrados = true; 
+                cout << endl << "Registro completo!" << endl;
+                break;
+
+            case 2:
+                
+                if (datosRegistrados) {
+                    cout << endl << "----- Datos Registrados -----" << endl;
+                    cout << "Nombre completo: " << persona.nombre << " " << persona.apellido << endl;
+                    cout << "Direccion: " << persona.direccion << endl;
+                    cout << "Telefono: " << persona.telefono << endl;
+                } else {
+                    cout << endl << "No hay datos registrados. Registra primero los datos." << endl;
+                }
+                break;
+
+            case 3:
+                
+                cout << "Saliendo de la agenda..." << endl;
+                break;
+
+            default:
+                
+                cout << "Opcion no valida, intenta de nuevo." << endl;
+                break;
+        }
+
+        cout << endl;
+
+    } while(opcion != 3); 
+
+    return 0;
+}
